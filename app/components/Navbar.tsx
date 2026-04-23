@@ -32,14 +32,16 @@ export default function Navbar() {
       }`}
     >
       <div className="max-w-6xl mx-auto px-6 flex justify-between items-center h-20">
-        <div className="text-2xl font-bold gradient-text">FastWebTools</div>
+        <Link href="/" className="text-2xl font-bold gradient-text">
+          FastWebTools
+        </Link>
 
-        <div className="hidden md:flex items-center gap-6 text-zinc-300">
+        <div className="hidden md:flex items-center gap-6 text-zinc-500 dark:text-zinc-300">
           {navLinks.map((link) => (
             <Link
               key={link.label}
               href={link.href}
-              className="hover:text-white"
+              className="hover:text-black dark:hover:text-white"
             >
               {link.label}
             </Link>
