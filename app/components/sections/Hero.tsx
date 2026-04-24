@@ -1,5 +1,8 @@
 "use client";
 
+import { motion } from "framer-motion";
+import { fadeUp } from "../../lib/animations";
+
 export default function Hero() {
   const scrollToNext = () => {
     document.getElementById("tools")?.scrollIntoView({
@@ -11,7 +14,12 @@ export default function Hero() {
     <section className="relative h-screen flex items-center justify-center text-center px-4">
       <div className="absolute inset-0 bg-white/70 dark:bg-black/70" />
 
-      <div className="relative z-10 max-w-4xl">
+      <motion.div
+        variants={fadeUp}
+        initial="hidden"
+        animate="show"
+        className="relative z-10 max-w-4xl"
+      >
         <p className="text-xs uppercase tracking-[0.4em] text-gray-500 mb-4">
           FAST WEB TOOLS
         </p>
@@ -31,15 +39,17 @@ export default function Hero() {
         >
           Explore Tools
         </button>
-      </div>
+      </motion.div>
 
-      {/* SCROLL BUTTON (BUMPING) */}
-      <div
+      {/* Scroll indicator */}
+      <motion.div
+        animate={{ y: [0, 10, 0] }}
+        transition={{ repeat: Infinity, duration: 1.5 }}
         onClick={scrollToNext}
-        className="absolute bottom-6 cursor-pointer animate-bounce text-sm opacity-70"
+        className="absolute bottom-6 cursor-pointer text-sm opacity-70"
       >
         ↓ Scroll
-      </div>
+      </motion.div>
     </section>
   );
 }
