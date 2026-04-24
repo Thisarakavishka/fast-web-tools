@@ -46,7 +46,7 @@ export default function Navbar() {
               {link.label}
             </Link>
           ))}
-          <ThemeToggle />
+          {/* <ThemeToggle /> */}
         </div>
 
         <button className="md:hidden" onClick={() => setIsOpen(!isOpen)}>
