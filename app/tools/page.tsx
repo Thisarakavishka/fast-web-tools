@@ -6,15 +6,17 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const tools = [
   { name: "Word Counter", path: "/tools/word-counter", category: "Text" },
+
   { name: "JSON Formatter", path: "/tools/json-formatter", category: "Dev" },
   { name: "Base64 Encoder", path: "/tools/base64", category: "Dev" },
   { name: "JWT Decoder", path: "/tools/jwt", category: "Dev" },
   { name: "Regex Tester", path: "/tools/regex", category: "Dev" },
-  { name: "Age Calculator", path: "/tools/age", category: "Utility" },
+  { name: "UUID Generator", path: "/tools/uuid", category: "Dev" },
+  { name: "Hash Generator", path: "/tools/hash-generator", category: "Dev" },
   {
-    name: "Percentage Calculator",
-    path: "/tools/percentage",
-    category: "Utility",
+    name: "URL Encoder / Decoder",
+    path: "/tools/url-encoder",
+    category: "Dev",
   },
 ];
 
