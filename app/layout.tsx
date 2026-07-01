@@ -1,5 +1,10 @@
+import type { Metadata } from "next";
 import "./globals.css";
+
 import Navbar from "./components/common/Navbar";
+import { defaultMetadata } from "../app/lib/metadata";
+
+export const metadata: Metadata = defaultMetadata;
 
 export default function RootLayout({
   children,
@@ -7,12 +12,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body>
-        {/* Background */}
         <div className="animated-bg" />
 
         <Navbar />
+
         <main>{children}</main>
       </body>
     </html>
