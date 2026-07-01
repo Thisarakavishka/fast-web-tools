@@ -12,6 +12,7 @@ import JwtHeader from "../../components/jwt/JwtHeader";
 import JwtPayload from "../../components/jwt/JwtPayload";
 import JwtStatistics from "../../components/jwt/JwtStatistics";
 import JwtFAQ from "../../components/jwt/JwtFAQ";
+import ToolSchema from "../../components/seo/ToolSchema";
 
 import {
   decodeJWT,
@@ -66,95 +67,124 @@ export default function JwtPage() {
   /* ----------------------------- */
 
   return (
-    <ToolLayout>
-      <ToolHeader
-        title="JWT Decoder"
+    <>
+      <ToolSchema
+        name="JWT Decoder"
         description="Decode JSON Web Tokens instantly inside your browser. Inspect the Header, Payload and Token Information without sending your JWT to any server."
+        path="/tools/jwt"
+        faqItems={[
+          {
+            question: "What is JWT?",
+            answer:
+              "JWT stands for JSON Web Token and is commonly used for authentication and authorization.",
+          },
+          {
+            question: "Is this decoder secure?",
+            answer:
+              "Yes. Everything is decoded locally in your browser. No token is uploaded.",
+          },
+          {
+            question: "Does this tool verify signatures?",
+            answer:
+              "No. It decodes the token contents but does not verify the cryptographic signature.",
+          },
+        ]}
       />
-
-      {/* Editor */}
-
-      <JwtEditor
-        value={token}
-        onChange={setToken}
-        onPaste={handlePaste}
-        onClear={handleClear}
-      />
-
-      {/* Toolbar */}
-
-      <JwtToolbar
-        onPaste={handlePaste}
-        onCopyHeader={handleCopyHeader}
-        onCopyPayload={handleCopyPayload}
-        onUpload={handleUpload}
-        onDownload={handleDownload}
-        onClear={handleClear}
-      />
-
-      {/* Header + Payload */}
-
-      <section className="mt-14 grid gap-8 lg:grid-cols-2">
-        <JwtHeader
-          header={decoded.header}
-          error={decoded.valid ? undefined : token ? decoded.error : undefined}
-          onCopy={handleCopyHeader}
+      
+      <ToolLayout>
+        <ToolHeader
+          title="JWT Decoder"
+          description="Decode JSON Web Tokens instantly inside your browser. Inspect the Header, Payload and Token Information without sending your JWT to any server."
         />
 
-        <JwtPayload
-          payload={decoded.payload}
-          error={decoded.valid ? undefined : token ? decoded.error : undefined}
-          onCopy={handleCopyPayload}
+        {/* Editor */}
+
+        <JwtEditor
+          value={token}
+          onChange={setToken}
+          onPaste={handlePaste}
+          onClear={handleClear}
         />
-      </section>
 
-      {/* Token Information */}
+        {/* Toolbar */}
 
-      <section className="mt-12">
-        <JwtStatistics
-          algorithm={statistics.algorithm}
-          type={statistics.type}
-          issuer={statistics.issuer}
-          subject={statistics.subject}
-          audience={statistics.audience}
-          issuedAt={statistics.issuedAt}
-          expiresAt={statistics.expiresAt}
-          notBefore={statistics.notBefore}
-          expired={statistics.expired}
-          signature={statistics.signature}
-          tokenSize={statistics.tokenSize}
+        <JwtToolbar
+          onPaste={handlePaste}
+          onCopyHeader={handleCopyHeader}
+          onCopyPayload={handleCopyPayload}
+          onUpload={handleUpload}
+          onDownload={handleDownload}
+          onClear={handleClear}
         />
-      </section>
 
-      {/* FAQ */}
+        {/* Header + Payload */}
 
-      <section className="mt-20">
-        <JwtFAQ />
-      </section>
+        <section className="mt-14 grid gap-8 lg:grid-cols-2">
+          <JwtHeader
+            header={decoded.header}
+            error={
+              decoded.valid ? undefined : token ? decoded.error : undefined
+            }
+            onCopy={handleCopyHeader}
+          />
 
-      {/* Related Tools */}
+          <JwtPayload
+            payload={decoded.payload}
+            error={
+              decoded.valid ? undefined : token ? decoded.error : undefined
+            }
+            onCopy={handleCopyPayload}
+          />
+        </section>
 
-      <section className="mt-20">
-        <RelatedTools
-          tools={[
-            {
-              title: "JSON Formatter",
-              description: "Beautify, validate and minify JSON instantly.",
-              href: "/tools/json-formatter",
-            },
-            {
-              title: "Base64 Encoder",
-              description: "Encode and decode Base64 strings securely.",
-              href: "/tools/base64",
-            },
-            {
-              title: "Regex Tester",
-              description: "Test and debug regular expressions in real time.",
-              href: "/tools/regex",
-            },
-          ]}
-        />
-      </section>
-    </ToolLayout>
+        {/* Token Information */}
+
+        <section className="mt-12">
+          <JwtStatistics
+            algorithm={statistics.algorithm}
+            type={statistics.type}
+            issuer={statistics.issuer}
+            subject={statistics.subject}
+            audience={statistics.audience}
+            issuedAt={statistics.issuedAt}
+            expiresAt={statistics.expiresAt}
+            notBefore={statistics.notBefore}
+            expired={statistics.expired}
+            signature={statistics.signature}
+            tokenSize={statistics.tokenSize}
+          />
+        </section>
+
+        {/* FAQ */}
+
+        <section className="mt-20">
+          <JwtFAQ />
+        </section>
+
+        {/* Related Tools */}
+
+        <section className="mt-20">
+          <RelatedTools
+            tools={[
+              {
+                title: "JSON Formatter",
+                description: "Beautify, validate and minify JSON instantly.",
+                href: "/tools/json-formatter",
+              },
+              {
+                title: "Base64 Encoder",
+                description: "Encode and decode Base64 strings securely.",
+                href: "/tools/base64",
+              },
+              {
+                title: "Regex Tester",
+                description: "Test and debug regular expressions in real time.",
+                href: "/tools/regex",
+              },
+            ]}
+          />
+        </section>
+      </ToolLayout>
+    </>
   );
 }
