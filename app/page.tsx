@@ -1,8 +1,8 @@
-import Hero from "../app/components/sections/Hero";
-import ToolsPreview from "../app/components/sections/ToolsPreview";
-import Features from "../app/components/sections/Features";
-import CTA from "../app/components/sections/CTA";
-import Footer from "../app/components/sections/Footer";
+import Hero from "./components/hero/Hero";
+import ToolsPreview from "./components/common/ToolsPreview";
+import Features from "./components/hero/Features";
+import CTA from "./components/hero/CTA";
+import Footer from "./components/common/Footer";
 
 export default function Home() {
   return (
