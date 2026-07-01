@@ -10,6 +10,7 @@ import WordCounterToolbar from "../../components/wordCounter/WordCounterToolbar"
 import WordCounterStats from "../../components/wordCounter/WordCounterStats";
 import WordCounterAdvanced from "../../components/wordCounter/WordCounterAdvanced";
 import WordCounterFAQ from "../../components/wordCounter/WordCounterFAQ";
+import ToolSchema from "../../components/seo/ToolSchema";
 
 import RelatedTools from "../../components/tool/RelatedTools";
 
@@ -98,68 +99,104 @@ export default function WordCounterPage() {
   };
 
   return (
-    <ToolLayout>
-      <ToolHeader
-        title="Word Counter"
-        description="Count words, characters, paragraphs, reading time, speaking time and analyze your writing instantly. Everything runs locally in your browser for maximum privacy."
-      />
-
-      {/* Editor */}
-
-      <WordCounterEditor value={text} onChange={setText} />
-
-      {/* Toolbar */}
-
-      <WordCounterToolbar
-        onPaste={handlePaste}
-        onCopy={handleCopy}
-        onClear={handleClear}
-        onUpload={handleUpload}
-        onDownload={handleDownload}
-      />
-
-      {/* Statistics */}
-
-      <WordCounterStats
-        words={statistics.words}
-        characters={statistics.characters}
-        charactersWithoutSpaces={statistics.charactersWithoutSpaces}
-        paragraphs={statistics.paragraphs}
-        sentences={statistics.sentences}
-        readingTime={statistics.readingTime}
-        speakingTime={statistics.speakingTime}
-        lines={statistics.lines}
-      />
-
-      {/* Advanced */}
-
-      <WordCounterAdvanced text={text} />
-
-      {/* FAQ */}
-
-      <WordCounterFAQ />
-
-      {/* Related */}
-
-      <RelatedTools
-        tools={[
+    <>
+      <ToolSchema
+        name="Word Counter"
+        description="Count words, characters, paragraphs, sentences, reading time, speaking time and analyze your writing instantly. Everything runs locally in your browser for maximum privacy."
+        path="/tools/word-counter"
+        category="UtilitiesApplication"
+        faqItems={[
           {
-            title: "JSON Formatter",
-            description: "Beautify, validate and minify JSON instantly.",
-            href: "/tools/json-formatter",
+            question: "What does the Word Counter measure?",
+            answer:
+              "This tool counts words, characters, characters without spaces, sentences, paragraphs, lines, estimated reading time and speaking time.",
           },
           {
-            title: "Base64 Encoder",
-            description: "Encode and decode Base64 strings online.",
-            href: "/tools/base64",
+            question: "How is reading time calculated?",
+            answer:
+              "Reading time is estimated using an average reading speed of approximately 200 words per minute, providing a quick estimate of how long it takes to read your text.",
           },
           {
-            title: "JWT Decoder",
-            description: "Decode JWT tokens securely in your browser.",
-            href: "/tools/jwt",
+            question: "How is speaking time calculated?",
+            answer:
+              "Speaking time is estimated using an average speaking speed of approximately 130 words per minute, making it useful for presentations and speeches.",
+          },
+          {
+            question: "Is my text uploaded anywhere?",
+            answer:
+              "No. Everything runs entirely inside your browser. Your text is never uploaded or stored on any server.",
+          },
+          {
+            question: "Who can use this Word Counter?",
+            answer:
+              "This tool is useful for students, writers, bloggers, journalists, marketers, copywriters, translators and anyone who needs to analyze text quickly.",
           },
         ]}
       />
-    </ToolLayout>
+
+      <ToolLayout>
+        <ToolHeader
+          title="Word Counter"
+          description="Count words, characters, paragraphs, reading time, speaking time and analyze your writing instantly. Everything runs locally in your browser for maximum privacy."
+        />
+
+        {/* Editor */}
+
+        <WordCounterEditor value={text} onChange={setText} />
+
+        {/* Toolbar */}
+
+        <WordCounterToolbar
+          onPaste={handlePaste}
+          onCopy={handleCopy}
+          onClear={handleClear}
+          onUpload={handleUpload}
+          onDownload={handleDownload}
+        />
+
+        {/* Statistics */}
+
+        <WordCounterStats
+          words={statistics.words}
+          characters={statistics.characters}
+          charactersWithoutSpaces={statistics.charactersWithoutSpaces}
+          paragraphs={statistics.paragraphs}
+          sentences={statistics.sentences}
+          readingTime={statistics.readingTime}
+          speakingTime={statistics.speakingTime}
+          lines={statistics.lines}
+        />
+
+        {/* Advanced */}
+
+        <WordCounterAdvanced text={text} />
+
+        {/* FAQ */}
+
+        <WordCounterFAQ />
+
+        {/* Related */}
+
+        <RelatedTools
+          tools={[
+            {
+              title: "JSON Formatter",
+              description: "Beautify, validate and minify JSON instantly.",
+              href: "/tools/json-formatter",
+            },
+            {
+              title: "Base64 Encoder",
+              description: "Encode and decode Base64 strings online.",
+              href: "/tools/base64",
+            },
+            {
+              title: "JWT Decoder",
+              description: "Decode JWT tokens securely in your browser.",
+              href: "/tools/jwt",
+            },
+          ]}
+        />
+      </ToolLayout>
+    </>
   );
 }
