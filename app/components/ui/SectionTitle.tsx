@@ -6,13 +6,33 @@ interface SectionTitleProps {
   title: string;
   description?: string;
   align?: "left" | "center";
+  size?: "sm" | "md" | "lg";
 }
 
 export default function SectionTitle({
   title,
   description,
   align = "left",
+  size = "lg",
 }: SectionTitleProps) {
+  const titleSize = {
+    sm: "text-xl md:text-2xl",
+    md: "text-2xl md:text-3xl",
+    lg: "text-3xl md:text-4xl",
+  }[size];
+
+  const descriptionSize = {
+    sm: "text-sm",
+    md: "text-base",
+    lg: "text-lg",
+  }[size];
+
+  const spacing = {
+    sm: "mb-4",
+    md: "mb-6",
+    lg: "mb-8",
+  }[size];
+
   return (
     <motion.div
       initial={{
@@ -27,29 +47,31 @@ export default function SectionTitle({
         once: true,
       }}
       transition={{
-        duration: 0.4,
+        duration: 0.35,
       }}
-      className={align === "center" ? "text-center mb-8" : "mb-8"}
+      className={`${align === "center" ? "text-center" : ""} ${spacing}`}
     >
       <h2
-        className="
-        text-3xl
-        md:text-4xl
-        font-bold
-        tracking-tight
-        "
+        className={`
+          ${titleSize}
+          font-bold
+          tracking-tight
+          text-black
+          dark:text-white
+        `}
       >
         {title}
       </h2>
 
       {description && (
         <p
-          className="
-          mt-3
-          max-w-2xl
-          text-neutral-500
-          leading-7
-          "
+          className={`
+            mt-2
+            ${descriptionSize}
+            text-neutral-500
+            leading-relaxed
+            ${align === "center" ? "mx-auto max-w-2xl" : "max-w-2xl"}
+          `}
         >
           {description}
         </p>
