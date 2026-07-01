@@ -7,20 +7,18 @@ import { motion, AnimatePresence } from "framer-motion";
 const tools = [
   { name: "Word Counter", path: "/tools/word-counter", category: "Text" },
   { name: "JSON Formatter", path: "/tools/json-formatter", category: "Dev" },
+  { name: "Base64 Encoder", path: "/tools/base64", category: "Dev" },
+  { name: "JWT Decoder", path: "/tools/jwt", category: "Dev" },
+  { name: "Regex Tester", path: "/tools/regex", category: "Dev" },
+  { name: "Age Calculator", path: "/tools/age", category: "Utility" },
   {
-    name: "Image Compressor",
-    path: "/tools/image-compressor",
-    category: "Image",
+    name: "Percentage Calculator",
+    path: "/tools/percentage",
+    category: "Utility",
   },
-  {
-    name: "Password Generator",
-    path: "/tools/password-generator",
-    category: "Security",
-  },
-  { name: "URL Encoder", path: "/tools/url-encoder", category: "Dev" },
 ];
 
-const categories = ["All", "Text", "Dev", "Image", "Security"];
+const categories = ["All", "Text", "Dev", "Image", "Security", "Utility"];
 
 /* ANIMATION VARIANTS */
 const fadeUp = {

@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+/* =========================
+   🌗 THEME VARIABLES
+========================= */
+
 /* LIGHT (default) */
 :root {
   --bg: #ffffff;
@@ -12,7 +16,10 @@
   --text: #ffffff;
 }
 
-/* BASE */
+/* =========================
+   🧱 BASE STYLES
+========================= */
+
 body {
   background-color: var(--bg);
   color: var(--text);
@@ -20,10 +27,17 @@ body {
     system-ui,
     -apple-system,
     sans-serif;
-  transition: all 0.3s ease;
+
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
 }
 
-/* SUBTLE GLOW (monochrome) */
+/* =========================
+   ✨ BACKGROUND EFFECTS
+========================= */
+
+/* Soft glow background */
 .animated-bg {
   position: fixed;
   inset: 0;
@@ -44,12 +58,9 @@ body {
   filter: blur(100px);
 }
 
-/* CLEAN TEXT STYLE */
-.gradient-text {
-  background: linear-gradient(90deg, #ffffff, #aaaaaa);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
+/* =========================
+   🌌 GRID FLOW ANIMATION
+========================= */
 
 @keyframes gridFlow {
   0% {
@@ -62,4 +73,72 @@ body {
 
 .animate-gridFlow {
   animation: gridFlow 20s linear infinite;
+}
+
+/* =========================
+   🎨 TEXT STYLES
+========================= */
+
+.gradient-text {
+  background: linear-gradient(90deg, #ffffff, #aaaaaa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* =========================
+   🔘 BUTTONS (NO @apply)
+========================= */
+
+.btn-primary {
+  padding: 0.75rem 1.5rem;
+  border-radius: 9999px;
+  background: black;
+  color: white;
+  transition: 0.3s;
+}
+
+.dark .btn-primary {
+  background: white;
+  color: black;
+}
+
+.btn-primary:hover {
+  opacity: 0.8;
+}
+
+/* Outline button */
+.btn-outline {
+  padding: 0.75rem 1.5rem;
+  border-radius: 9999px;
+  border: 1px solid black;
+  transition: 0.3s;
+}
+
+.dark .btn-outline {
+  border-color: white;
+}
+
+.btn-outline:hover {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.dark .btn-outline:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* =========================
+   📦 SCROLLBAR (OPTIONAL)
+========================= */
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
 }
