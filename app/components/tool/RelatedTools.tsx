@@ -17,7 +17,7 @@ export default function RelatedTools({ tools }: Props) {
   return (
     <section className="mt-24">
       <div className="mb-10">
-        <h2 className="text-3xl md:text-4xl font-bold">Related Tools</h2>
+        <h2 className="text-2xl md:text-3xl font-bold">Related Tools</h2>
 
         <p className="mt-3 text-neutral-500">Discover more free tools.</p>
       </div>
