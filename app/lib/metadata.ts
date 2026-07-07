@@ -6,7 +6,7 @@ export const SITE_CONFIG = {
   description:
     "FastWebTools provides free online developer tools including JSON Formatter, Base64 Encoder, JWT Decoder, Regex Tester, UUID Generator, Hash Generator, URL Encoder and more.",
 
-  url: "https://fastwebtools.dev",
+  url: "https://www.fastwebtools.dev",
 
   ogImage: "/og-image.png",
 
