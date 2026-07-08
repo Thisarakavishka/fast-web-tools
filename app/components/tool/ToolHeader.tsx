@@ -20,7 +20,7 @@ export default function ToolHeader({ title, description }: Props) {
         FAST WEB TOOLS
       </p>
 
-      <h1 className="text-4xl font-bold tracking-tight md:text-6xl">{title}</h1>
+      <h1 className="text-2xl font-bold tracking-tight md:text-4xl">{title}</h1>
 
       <p className="mx-auto mt-5 max-w-2xl text-base leading-8 text-neutral-500 md:text-lg">
         {description}
